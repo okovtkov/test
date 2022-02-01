@@ -9,3 +9,7 @@ html, body {
 .app {
   display: flex;
 }
+
+.app__wrapper {
+  padding-left: 34px;
+}
