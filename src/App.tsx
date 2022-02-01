@@ -1,12 +1,16 @@
 import './App.css';
 import Sort from './components/sort/sort';
-import List from './components/list/list';
+// import List from './components/list/list';
+import Profile from './components/profile/profile';
 
 function App() {
   return (
-    <div className='app'>
+    <div className="app">
       <Sort />
-      <List />
+      <div className="app__wrapper">
+        {/* <List /> */}
+        <Profile />
+      </div>
     </div>
   );
 }

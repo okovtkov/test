@@ -1,0 +1,23 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.input__label {
+  font-size: 10px;
+  margin-bottom: 3px;
+}
+
+.input__input,
+.input__textarea {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #D8D8D8;
+  font-size: 11px;
+  resize: none;
+}
+
+.input__input {
+  width: 211px;
+}

@@ -1,0 +1,25 @@
+.profile {
+  width: 440px;
+}
+
+.profile__heading {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.profile__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile__form-wrapper {
+  border: 1px solid #F3F3F3;
+  border-radius: 8px;
+  padding: 12px 20px;
+}
+
+.profile__submit {
+  margin-top: 10px;
+  float: right;
+}
