@@ -16,8 +16,17 @@
   border: 1px solid #D8D8D8;
   font-size: 11px;
   resize: none;
+  outline: none;
 }
 
 .input__input {
   width: 211px;
+
+  &:invalid {
+    outline: 1px solid red;
+  }
+
+  &:read-only {
+    color: rgba(0, 0, 0, 0.3);
+  }
 }

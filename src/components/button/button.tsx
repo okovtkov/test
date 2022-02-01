@@ -12,6 +12,7 @@ interface Props {
 export default function Button(props: Props) {
   return (
     <button
+      type={props.type}
       className={classNames("button", props.className, {
         'button__submit': props.type === 'submit',
         'button__disabled': props.disabled,
