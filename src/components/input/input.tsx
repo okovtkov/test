@@ -22,6 +22,7 @@ export default function Input(props: Props) {
           disabled={props.disabled}
           placeholder={props.placeholder}
           readOnly={props.readOnly}
+          required
         />
       ) : (
         <textarea
