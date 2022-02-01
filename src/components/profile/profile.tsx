@@ -4,20 +4,15 @@ import Button from '../button/button';
 import Input from '../input/input';
 import { User } from '../../types';
 import './profile.scss';
+import { users } from '../../api/users';
 
-interface Props {
-  data?: User[] | null;
-}
-
-export default function Profile(props: Props) {
+export default function Profile() {
   const [data, setData] = useState<User | null>(null);
   const params = useParams();
 
   useEffect(() => {
-    const data = props.data?.find((item) => item.id === Number(params.id));
-    if (!data) throw new Error('Ошибка загрузки');
-    setData(data);
-  }, [params.id, props.data]);
+    users.find(params.id).then((resp) => setData(resp));
+  }, [params.id]);
 
   return (
     <div className="profile">
