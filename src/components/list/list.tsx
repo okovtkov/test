@@ -40,8 +40,9 @@ export default function List(props: Props) {
       {sortedData.length > 0 ? sortedData.map((item) => (
         <Card key={item.id} data={item} />
       )) : (
-        <span className='list__loading'>Загрузка...</span>
+        <span className="list__loading">Загрузка...</span>
       )}
+      <p className="list__count">Найдено {data.length} пользователей</p>
     </div>
   )
 }
