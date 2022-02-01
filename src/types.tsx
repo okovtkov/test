@@ -21,3 +21,5 @@ export interface User {
   username: string,
   website: string,
 }
+
+export type sortType = 'city' | 'company' | '';

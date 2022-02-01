@@ -6,6 +6,7 @@ interface Props {
   name: string;
   type?: 'submit' | 'button';
   disabled?: boolean;
+  onClick?: () => void;
 }
 
 export default function Button(props: Props) {
@@ -16,6 +17,7 @@ export default function Button(props: Props) {
         'button__disabled': props.disabled,
       })}
       disabled={props.disabled}
+      onClick={props.onClick}
     >{props.name}</button>
   )
 }
