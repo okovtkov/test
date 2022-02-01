@@ -19,3 +19,9 @@
 .list__loading {
   animation: loading 0.8s infinite;
 }
+
+.list__count {
+  float: right;
+  margin-top: 0;
+  font-size: 12px;
+}
