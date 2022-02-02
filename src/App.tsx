@@ -7,7 +7,7 @@ import './App.css';
 import { sortType } from './types';
 
 function App() {
-  const [sortType, setSortType] = useState<sortType>('')
+  const [sortType, setSortType] = useState<sortType | ''>('')
 
   return (
     <div className="app">
