@@ -4,7 +4,7 @@ export const users = {
       .then((resp) => resp.json());
   },
 
-  find(id) {
+  getById(id) {
     return fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then((resp) => resp.json());
   }

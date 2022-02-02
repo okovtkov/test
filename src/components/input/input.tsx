@@ -23,7 +23,7 @@ export default function Input(props: Props) {
         <input
           id={props.label.toLowerCase()}
           name={props.label.toLowerCase()}
-          className="input__element input__input"
+          className="input__element input_input"
           type={props.type}
           value={value === undefined ? props.value : value}
           placeholder={props.placeholder}
@@ -33,7 +33,7 @@ export default function Input(props: Props) {
         />
       ) : (
         <textarea
-          className="input__element input__textarea"
+          className="input__element input_textarea"
           name={props.label.toLowerCase()}
           rows={5}
           disabled={props.disabled}
