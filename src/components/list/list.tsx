@@ -42,7 +42,9 @@ export default function List(props: Props) {
       )) : (
         <span className="list__loading">Загрузка...</span>
       )}
-      <p className="list__count">Найдено {data.length} пользователей</p>
+      {data.length > 0 && (
+        <p className="list__count">Найдено {data.length} пользователей</p>
+      )}
     </div>
   )
 }
