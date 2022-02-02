@@ -1,4 +1,4 @@
-export interface User {
+export interface UserData {
   address: {
     city: string;
     geo: {
@@ -22,4 +22,4 @@ export interface User {
   website: string,
 }
 
-export type sortType = 'city' | 'company';
+export type SortType = 'city' | 'company';

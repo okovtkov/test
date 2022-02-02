@@ -3,10 +3,10 @@ import './button.scss';
 
 interface Props {
   className?: string;
-  name: string;
   type?: 'submit' | 'button';
   disabled?: boolean;
   onClick?: () => void;
+  children: React.ReactNode;
 }
 
 export default function Button(props: Props) {
@@ -14,11 +14,11 @@ export default function Button(props: Props) {
     <button
       type={props.type}
       className={classNames("button", props.className, {
-        'button__submit': props.type === 'submit',
-        'button__disabled': props.disabled,
+        'button_submit': props.type === 'submit',
+        'button_disabled': props.disabled,
       })}
       disabled={props.disabled}
       onClick={props.onClick}
-    >{props.name}</button>
+    >{props.children}</button>
   )
 }

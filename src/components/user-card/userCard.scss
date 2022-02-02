@@ -1,4 +1,4 @@
-.card {
+.user-card {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,8 @@
   border-radius: 8px;
 }
 
-.card__item {
+.user-card__item {
+  display: flex;
   margin-bottom: 8px;
 
   &:last-of-type {
@@ -18,11 +19,16 @@
   }
 }
 
-.card__key {
+.user-card__key {
+  margin-right: 5px;
   color: #A3A3A3;
 }
 
-.card__more {
+.user-card__value {
+  margin-left: 0;
+}
+
+.user-card__more {
   position: absolute;
   bottom: 10px;
   right: 10px;

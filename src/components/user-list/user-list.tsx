@@ -1,15 +1,16 @@
 import { useState, useEffect, useMemo } from 'react';
-import { User } from '../../types';
-import Card from '../card/card';
+import { SortType, UserData } from '../../types';
+import UserCard from '../user-card/userCard';
 import { users } from '../../api/users';
-import './list.scss';
+import './user-list.scss';
+import Loading from '../loading/loading';
 
 interface Props {
-  sortType: 'city' | 'company' | '';
+  sortType: SortType | '';
 }
 
-export default function List(props: Props) {
-  const [data, setData] = useState<User[] | []>([]);
+export default function UserList(props: Props) {
+  const [data, setData] = useState<UserData[] | []>([]);
   const sortedData = useMemo(() => {
     if (props.sortType === 'city') {
       const clone = [...data];
@@ -35,15 +36,19 @@ export default function List(props: Props) {
   }, []);
 
   return (
-    <div className="list">
-      <h1 className="list__heading">Список пользователей</h1>
-      {sortedData.length > 0 ? sortedData.map((item) => (
-        <Card key={item.id} data={item} />
-      )) : (
-        <span className="list__loading">Загрузка...</span>
-      )}
+    <div className="user-list">
+      <h1 className="user-list__heading">Список пользователей</h1>
+      <ul className="user-list__list">
+        {sortedData.length > 0 ? sortedData.map((item) => (
+          <li className="user-list__item" key={item.id}>
+            <UserCard userData={item} />
+          </li>
+        )) : (
+          <Loading />
+        )}
+      </ul>
       {data.length > 0 && (
-        <p className="list__count">Найдено {data.length} пользователей</p>
+        <p className="user-list__count">Найдено {data.length} пользователей</p>
       )}
     </div>
   )

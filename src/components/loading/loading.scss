@@ -1,0 +1,12 @@
+@keyframes loading {
+  from {
+    color: black;
+  }
+  to {
+    color: white;
+  }
+}
+
+.loading {
+  animation: loading 0.8s infinite;
+}
