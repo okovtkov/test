@@ -12,4 +12,5 @@ html, body {
 
 .app__wrapper {
   padding-left: 34px;
+  outline: 2px solid red;
 }
