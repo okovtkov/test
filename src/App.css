@@ -11,6 +11,5 @@ html, body {
 }
 
 .app__wrapper {
-  outline: 2px solid red;
   padding-left: 34px;
 }
