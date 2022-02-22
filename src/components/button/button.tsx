@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import './button.scss';
+import styles from './button.module.scss';
 
 interface Props {
   className?: string;
@@ -13,9 +13,9 @@ export default function Button(props: Props) {
   return (
     <button
       type={props.type}
-      className={classNames("button", props.className, {
-        'button_submit': props.type === 'submit',
-        'button_disabled': props.disabled,
+      className={classNames(styles.button, props.className, {
+        [styles.button_submit]: props.type === 'submit',
+        [styles.button_disabled]: props.disabled,
       })}
       disabled={props.disabled}
       onClick={props.onClick}

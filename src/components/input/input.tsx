@@ -1,5 +1,6 @@
-import { useCallback, useState } from 'react';
-import './input.scss';
+import { ChangeEvent, useCallback, useState } from 'react';
+import classNames from 'classnames';
+import styles from './input.module.scss';
 
 interface Props {
   label: string;
@@ -8,22 +9,24 @@ interface Props {
   type: string;
   readOnly?: boolean;
   disabled?: boolean;
+  onChange: (value: string) => void;
 }
 
 export default function Input(props: Props) {
   const [value, setValue] = useState(props.value);
   const changeHandler = useCallback((event) => {
     setValue(event.target.value);
-  }, []);
+    props.onChange(event.target.value);
+  }, [props]);
 
   return (
-    <div className="input">
-      <label className="input__label" htmlFor={props.label}>{props.label}</label>
+    <div className={classNames(styles.input)}>
+      <label className={classNames(styles.input__label)} htmlFor={props.label}>{props.label}</label>
       {props.type !== 'textarea' ? (
         <input
           id={props.label.toLowerCase()}
           name={props.label.toLowerCase()}
-          className="input__element input_input"
+          className={classNames(styles.input__element, styles.input_input)}
           type={props.type}
           value={value === undefined ? props.value : value}
           placeholder={props.placeholder}
@@ -33,10 +36,11 @@ export default function Input(props: Props) {
         />
       ) : (
         <textarea
-          className="input__element input_textarea"
+          className={classNames(styles.input__element, styles.input_textarea)}
           name={props.label.toLowerCase()}
           rows={5}
           disabled={props.disabled}
+          onChange={changeHandler}
         />
       )}
     </div>

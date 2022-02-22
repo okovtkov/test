@@ -1,19 +1,19 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import { SortType, UserData } from '../../types';
 import UserCard from '../user-card/userCard';
-import { users } from '../../api/users';
-import './user-list.scss';
+import styles from './userList.module.scss';
 import Loading from '../loading/loading';
 
 interface Props {
   sortType: SortType | '';
+  usersData: UserData[];
+  isLoading: boolean;
 }
 
 export default function UserList(props: Props) {
-  const [data, setData] = useState<UserData[] | []>([]);
   const sortedData = useMemo(() => {
     if (props.sortType === 'city') {
-      const clone = [...data];
+      const clone = [...props.usersData];
       return clone.sort((a, b) => {
         if (a.address.city > b.address.city) return 1;
         if (a.address.city < b.address.city) return -1;
@@ -21,34 +21,30 @@ export default function UserList(props: Props) {
       });
     }
     if (props.sortType === 'company') {
-      const clone = [...data];
+      const clone = [...props.usersData];
       return clone.sort((a, b) => {
         if (a.company.name > b.company.name) return 1;
         if (a.company.name < b.company.name) return -1;
         return 0;
       });
     }
-    return data;
-  }, [data, props.sortType]);
-
-  useEffect(() => {
-    users.get().then((data) => setData(data));
-  }, []);
+    return props.usersData;
+  }, [props.usersData, props.sortType]);
 
   return (
-    <div className="user-list">
-      <h1 className="user-list__heading">Список пользователей</h1>
-      <ul className="user-list__list">
+    <div className={styles.userList}>
+      <h1 className={styles.userList__heading}>Список пользователей</h1>
+      <ul className={styles.userList__list}>
         {sortedData.length > 0 ? sortedData.map((item) => (
-          <li className="user-list__item" key={item.id}>
+          <li className={styles.userList__item} key={item.id}>
             <UserCard userData={item} />
           </li>
         )) : (
           <Loading />
         )}
       </ul>
-      {data.length > 0 && (
-        <p className="user-list__count">Найдено {data.length} пользователей</p>
+      {!props.isLoading && (
+        <p className={styles.userList__count}>Найдено {props.usersData.length} пользователей</p>
       )}
     </div>
   )

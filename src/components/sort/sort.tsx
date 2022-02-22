@@ -1,6 +1,6 @@
 import { SortType } from '../../types';
 import Button from '../button/button';
-import './sort.scss';
+import styles from './sort.module.scss';
 
 interface Props {
   onChangeSortType: (sortType: SortType) => void;
@@ -8,14 +8,14 @@ interface Props {
 
 export default function Sort(props: Props) {
   return (
-    <div className="sort">
-      <span className="sort__label">Сортировка</span>
+    <div className={styles.sort}>
+      <span className={styles.sort__label}>Сортировка</span>
       <Button
-        className="sort__by-city"
+        className={styles.sort__byCity}
         onClick={() => props.onChangeSortType('city')}
       >по городу</Button>
       <Button
-        className="sort__by-company"
+        className={styles.sort__byCompany}
         onClick={() => props.onChangeSortType('company')}
       >по компании</Button>
     </div>

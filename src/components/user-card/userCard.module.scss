@@ -1,4 +1,4 @@
-.user-card {
+.userCard {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
   border-radius: 8px;
 }
 
-.user-card__item {
+.userCard__item {
   display: flex;
   margin-bottom: 8px;
 
@@ -19,16 +19,16 @@
   }
 }
 
-.user-card__key {
+.userCard__key {
   margin-right: 5px;
   color: #A3A3A3;
 }
 
-.user-card__value {
+.userCard__value {
   margin-left: 0;
 }
 
-.user-card__more {
+.userCard__more {
   position: absolute;
   bottom: 10px;
   right: 10px;
